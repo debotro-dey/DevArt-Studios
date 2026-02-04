@@ -1,0 +1,553 @@
+/* =====================
+   CSS VARIABLES
+===================== */
+:root {
+  --bg-dark: #0b0f1a;
+  --bg-dark-alt: #11152a;
+  --bg-light: #f6f7fb;
+  --text-dark: #eaeaf0;
+  --text-light: #111;
+  --accent: #7b5cff;
+  --accent-glow: rgba(123, 92, 255, 0.6);
+  --glass: rgba(255, 255, 255, 0.08);
+}
+
+/* =====================
+   BASE RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+  transition: 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 25, 0.95);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 42px;
+}
+
+.logo span {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.nav-links a {
+  margin: 0 16px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* =====================
+   GLOBAL SECTIONS
+===================== */
+.section {
+  padding: 140px 8vw;
+}
+
+.section.alt {
+  background: var(--bg-dark-alt);
+}
+
+.section-title {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.section-desc {
+  max-width: 900px;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 25px var(--accent-glow);
+}
+
+.btn.secondary {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  padding: 60px 8vw;
+  text-align: center;
+  background: #070a14;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* =========================
+   CTA BUTTON HOVER EFFECTS
+========================= */
+
+.btn {
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+  will-change: transform;
+}
+
+/* Primary CTA */
+.btn.primary:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 25px var(--accent-glow),
+    0 0 50px rgba(123, 92, 255, 0.35);
+}
+
+/* Secondary CTA */
+.btn.secondary:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 20px var(--accent-glow);
+}
+
+/* Click / Tap feedback */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   MOBILE HAMBURGER MENU
+========================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  height: 2px;
+  width: 26px;
+  background: var(--text-dark);
+  margin: 5px 0;
+  transition: 0.4s ease;
+}
+
+/* MOBILE NAV */
+@media (max-width: 900px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    background: rgba(10, 10, 25, 0.95);
+    backdrop-filter: blur(18px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    transition: right 0.45s ease;
+    z-index: 1050;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+}
+
+/* HAMBURGER → X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* LOCK SCROLL */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* =========================
+   PW STYLE MOBILE MENU
+========================= */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: #ffffff;
+  color: #000;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.4s ease;
+}
+
+/* SHOW MENU */
+.mobile-menu.active {
+  right: 0;
+}
+
+/* HEADER */
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.menu-close {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* LINKS */
+.mobile-menu-links {
+  list-style: none;
+  padding: 10px 0;
+  flex: 1;
+}
+
+.mobile-menu-links li {
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-menu-links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+}
+
+/* FOOTER CTA */
+.mobile-menu-footer {
+  padding: 20px;
+}
+
+.mobile-login-btn {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  border-radius: 8px;
+  background: #7b5cff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* HIDE DESKTOP NAV ON MOBILE */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* =========================
+   COMPACT FOOTER
+========================= */
+
+.site-footer {
+  padding: 20px 8vw;
+  text-align: center;
+  background: #070a14;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.site-footer p {
+  margin: 4px 0;
+}
+
+.site-footer .copyright {
+  opacity: 0.7;
+}
+
+/* =========================
+   SOFT SECTION BLENDING
+========================= */
+
+/* Default section blend */
+.section {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 15, 26, 0.92),
+    rgba(11, 15, 26, 1)
+  );
+}
+
+/* Alternate section blend */
+.section.alt {
+  background: linear-gradient(
+    180deg,
+    rgba(17, 21, 42, 0.9),
+    rgba(11, 15, 26, 1)
+  );
+}
+
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 15, 26, 1),
+    rgba(11, 15, 26, 0)
+  );
+}
+
+.section::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 15, 26, 1),
+    rgba(11, 15, 26, 0)
+  );
+}
+
+/* Ensure content stays above fades */
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card,
+.service-card,
+.timeline-card,
+.feature-card,
+.create-box {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* =========================
+   CTA SPACING FIX
+========================= */
+
+/* Any final CTA section */
+.final-cta {
+  padding-bottom: 140px; /* creates breathing space */
+  position: relative;
+  z-index: 2;
+}
+
+/* Ensure footer stays separate */
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Space after CTA before next section */
+.final-cta + .section,
+.final-cta + section {
+  margin-top: 80px;
+}
+
+.final-cta .btn {
+  position: relative;
+  z-index: 3;
+}
+
+/* =========================
+   FINAL CTA ALIGNMENT FIX
+========================= */
+
+.final-cta {
+  text-align: center;
+}
+
+.final-cta h2,
+.final-cta p {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-cta .btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================================
+   CONTACT FORM – FINAL FIX
+   Safe global overrides
+================================ */
+
+/* Proper spacing between section text and form */
+.section-desc {
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* Ensure form never overlaps text */
+.contact-form {
+  margin-top: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Prevent reveal animations from overlapping elements */
+.reveal {
+  transform: translateY(20px);
+}
+
+/* Stable layout after animation */
+.reveal.active {
+  transform: translateY(0);
+}
+
+/* Extra breathing room for alt sections */
+.section.alt {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* Mobile safety */
+@media (max-width: 768px) {
+  .section-desc {
+    margin-bottom: 36px;
+  }
+
+  .contact-form {
+    margin-top: 20px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logo img {
+  display: block;
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+

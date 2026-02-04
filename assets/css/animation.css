@@ -1,0 +1,109 @@
+/* ===================================
+   FIXED GLOBAL MOTION SYSTEM
+   (No conflicts, no overlap)
+=================================== */
+
+/* 1️⃣ Scroll Reveal (single source of truth) */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2️⃣ Section base (NO animation here) */
+.section {
+  position: relative;   /* required for ::before */
+  overflow: hidden;     /* prevents glow bleeding */
+}
+
+/* 3️⃣ Soft parallax background (fixed layering) */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(139, 123, 255, 0.06),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure section content stays above glow */
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 4️⃣ Glow hover (safe + smooth) */
+.glow-hover {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.glow-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 35px var(--accent-glow);
+}
+
+/* 5️⃣ Card hover lift (no stacking bug) */
+.card,
+.contact-card,
+.service-card,
+.resource-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.card:hover,
+.contact-card:hover,
+.service-card:hover,
+.resource-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(140, 120, 255, 0.15);
+}
+
+/* 6️⃣ Gradient text shimmer (safe) */
+.gradient-text {
+  background: linear-gradient(
+    120deg,
+    #8b7bff,
+    #4fd1ff,
+    #8b7bff
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* 7️⃣ CTA breathing animation (paused on hover) */
+.btn.primary {
+  animation: pulseGlow 3.5s ease-in-out infinite;
+}
+
+.btn.primary:hover {
+  animation-play-state: paused;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(139, 123, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(139, 123, 255, 0.45);
+  }
+}
