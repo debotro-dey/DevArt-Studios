@@ -1,0 +1,84 @@
+/* HERO */
+.services-hero {
+  min-height: 80vh;
+  padding: 180px 8vw 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, #1b1f3b, #0b0f1a);
+}
+
+.services-hero-inner {
+  max-width: 900px;
+}
+
+.services-hero h1 {
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1.15;
+}
+
+.services-hero p {
+  margin-top: 22px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* SERVICES GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.service-card {
+  background: var(--glass);
+  padding: 38px;
+  border-radius: 22px;
+  backdrop-filter: blur(14px);
+}
+
+.service-card h3 {
+  margin-bottom: 14px;
+  color: var(--accent);
+}
+
+/* PROCESS */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.process-step {
+  background: var(--glass);
+  padding: 28px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.process-step span {
+  display: block;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* FINAL CTA FIX (CENTERED) */
+.final-cta {
+  text-align: center;
+}
+
+.final-cta h2,
+.final-cta p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-cta p {
+  margin-top: 14px;
+  opacity: 0.9;
+}
