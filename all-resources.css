@@ -1,0 +1,285 @@
+/* ===============================
+   RESOURCES PAGE • DEVART STUDIOS
+   FINAL CLEAN CSS
+   =============================== */
+
+
+/* ===============================
+   HERO — FREE RESOURCES
+   =============================== */
+
+.resources-hero {
+  background: linear-gradient(
+    180deg,
+    #1a0049 0%,
+    #2b0066 70%,
+    #2b0066 100%
+  );
+  text-align: center;
+  padding: 140px 20px 60px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* Glow background */
+.resources-hero::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle,
+              rgba(156,39,176,0.25),
+              transparent 70%);
+  top: -200px;
+  right: -200px;
+  filter: blur(100px);
+}
+
+/* Hero Text */
+.big-heading {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.big-sub {
+  font-size: 18px;
+  opacity: 0.85;
+  max-width: 650px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+
+
+/* ===============================
+   HOOKS SECTION
+   =============================== */
+
+.hooks-section {
+  background: linear-gradient(
+    180deg,
+    #2b0066 0%,
+    #1a0049 40%,
+    #0d0026 100%
+  );
+  padding: 100px 20px 180px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+/* Background glow */
+.hooks-section::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle,
+              rgba(156,39,176,0.25),
+              transparent 70%);
+  top: -150px;
+  left: -150px;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.hooks-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* ===============================
+   TITLES
+   =============================== */
+
+.section-title {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section-sub {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+/* Sub headings */
+.sub-heading {
+  font-size: 24px;
+  margin: 70px 0 30px;
+  opacity: 0.9;
+}
+
+/* Extra spacing before scroll hooks */
+.scroll-title {
+  margin-top: 140px;
+}
+
+
+
+/* ===============================
+   TEXT HOOK BOXES
+   =============================== */
+
+.hooks-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 100px;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.hook-box {
+  background: rgba(255,255,255,0.08);
+  padding: 12px 18px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.hook-box:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+
+
+/* ===============================
+   VIDEO GRID
+   =============================== */
+
+.hooks-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 140px;
+}
+
+
+
+/* ===============================
+   VIDEO CARD
+   =============================== */
+
+.video-card {
+  background: rgba(255,255,255,0.06);
+  padding: 18px;
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  transition: all 0.35s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Video Preview */
+.video-card video {
+  width: 100%;
+  border-radius: 12px;
+  outline: none;
+}
+
+/* Title */
+.video-card h4 {
+  margin: 14px 0 6px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+
+
+/* ===============================
+   DOWNLOAD BUTTON — GOLD
+   =============================== */
+
+.download-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg,#FFD700,#FFC300);
+  color: #000;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg,#FFE55C,#FFD700);
+  transform: scale(1.06);
+  box-shadow:
+    0 0 20px rgba(255,215,0,0.8),
+    0 0 40px rgba(255,215,0,0.6),
+    0 0 60px rgba(255,215,0,0.4);
+}
+
+
+
+/* ===============================
+   END CTA
+   =============================== */
+
+.end-cta {
+  background: linear-gradient(
+    180deg,
+    #0d0026 0%,
+    #1a0049 60%,
+    #2b0066 100%
+  );
+  padding: 120px 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width:768px){
+
+  .big-heading {
+    font-size: 40px;
+  }
+
+  .big-sub {
+    font-size: 15px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .sub-heading {
+    font-size: 20px;
+  }
+
+  .hooks-section {
+    padding: 80px 15px 140px;
+  }
+
+}
